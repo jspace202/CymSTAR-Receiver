@@ -1,34 +1,38 @@
 .float-display-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: rgb(221, 245, 221); /* Add light green background color */
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 0px;
-  }
-  
-  h2 {
-    font-size: 4em; /* Increase the font size for h2 */
-    margin-bottom: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: rgb(63, 0, 63); /* Make the button purple */
-    color: white; /* Set text color to white for better visibility */
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: rgb(78, 37, 78); /* Change button color on hover */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(221, 245, 221); /* Add light green background color */
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 5em; /* Increase the font size for h2 */
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 3em;
+  background-color: rgb(63, 0, 63); /* Make the button purple */
+  color: white; /* Set text color to white for better visibility */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+button:hover {
+  background-color: rgb(78, 37, 78); /* Change button color on hover */
+}
+
+button:active {
+  background-color: rgb(0, 128, 0); /* Dark green color when button is clicked */
+}

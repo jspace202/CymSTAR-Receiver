@@ -6,20 +6,25 @@ const FloatDisplay = () => {
   const [isStreaming, setIsStreaming] = useState(true);
 
   useEffect(() => {
-    const socket = new WebSocket('ws://192.168.1.2:3000');
+    if (isStreaming) {
+      const socket = new WebSocket('ws://192.168.1.2:3000');
 
-    socket.addEventListener('open', () => {
-      console.log('Connected to server');
-    });
+      socket.addEventListener('open', () => {
+        console.log('Connected to server');
+      });
 
-    socket.addEventListener('message', (event) => {
-      const receivedFloat = parseFloat(event.data);
-      setFloatNumber(receivedFloat);
-    });
+      socket.addEventListener('message', (event) => {
+        const receivedFloat = parseFloat(event.data);
+        setFloatNumber(receivedFloat);
+      });
 
-    return () => {
-      socket.close();
-    };
+      return () => {
+        socket.close();
+      };
+    } else {
+      // Set floatNumber to 0 when streaming is stopped
+      setFloatNumber(0);
+    }
   }, [isStreaming]);
 
   const toggleStreaming = () => {
@@ -28,8 +33,8 @@ const FloatDisplay = () => {
 
   return (
     <div className="float-display-container">
-      <h1>Synchro Transmitter Angle:</h1>
-      <h2> {floatNumber}&deg;</h2>
+      <h1>Synchro Transmitter Rotor Angle:</h1>
+      <h2>{floatNumber}&deg;</h2>
       <button onClick={toggleStreaming}>
         {isStreaming ? 'Stop Streaming' : 'Start Streaming'}
       </button>
@@ -38,4 +43,3 @@ const FloatDisplay = () => {
 };
 
 export default FloatDisplay;
-
